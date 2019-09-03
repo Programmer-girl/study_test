@@ -51,7 +51,7 @@ var Base = function () {}
 var o1 = new Base();
 var o2 = Object.create(Base);
 ```
-以下是Object.create的实现方式，可以看出来。Object.create是内部定义一个对象，并且让F.prototype对象 赋值为引进的对象/函数 o，并return出一个新的对象。
+以下是Object.create的实现方式。可以看出来，Object.create是内部定义一个对象，并且让F.prototype对象 赋值为引进的对象/函数 o，并return出一个新的对象。
 
 ```
 Object.create =  function (o) {
@@ -103,8 +103,11 @@ console.log(o2.a);
 依旧是如此。
 
 那我们就以图说话。
+1. new方式创建对象
 
 ![运行结果](../img/3.png)
+
+2.Object.create方式创建对象
 
 ![运行结果](../img/4.png)
 
