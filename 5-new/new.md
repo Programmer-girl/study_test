@@ -23,19 +23,19 @@ console.log(xm);
 
 ```
 function Person(name,age){
-	this.name = name;
-	this.age = age;
+    this.name = name;
+    this.age = age;
 }
  
 function _new(){
-	//1.拿到传入的参数中的第一个参数，即构造函数名Func
-	var Func = [].shift.call(arguments);
-	//2.创建一个空对象obj,并让其继承Func.prototype
-	var obj = Object.create(Func.prototype);
-	//3.执行构造函数，并将this指向创建的空对象obj
-	Func.apply(obj,arguments)
-	//4.返回创建的对象obj
-	return obj
+    //1.拿到传入的参数中的第一个参数，即构造函数名Func
+    var Func = [].shift.call(arguments);
+    //2.创建一个空对象obj,并让其继承Func.prototype
+    var obj = Object.create(Func.prototype);
+    //3.执行构造函数，并将this指向创建的空对象obj
+    Func.apply(obj,arguments)
+    //4.返回创建的对象obj
+    return obj
 }
  
 xm = _new(Person,'xiaoming',18);
