@@ -21,11 +21,11 @@ DTD全称 Document Type Definition,即文档类型定义.
 ```html
 <!DOCTYPE html>
 ```
-### html5不使用DTD引用的原因？
+- html5不使用DTD引用的原因？
 HTML5 不基于 SGML，因此不需要对DTD进行引用，但是需要doctype来规范浏览器的行为（让浏览器按照它们应该的方式来运行）；
 
 而HTML4.01基于SGML,所以需要对DTD进行引用，才能告知浏览器文档所使用的文档类型。
-### Doctype作用？
+- Doctype作用？
 告知浏览器的解析器用什么文档标准解析这个文档。
 标准分为：1.标准模式、JS运作模式、兼容模式等
 
