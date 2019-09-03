@@ -36,3 +36,20 @@ HTML5 不基于 SGML，因此不需要对DTD进行引用，但是需要doctype�
 - 页面被加载的时，link会同时被加载，而@import引用的CSS会等到页面被加载完再加载;
 - import是CSS2.1 提出的，只在IE5以上才能被识别，而link是XHTML标签，无兼容问题;
 - link支持使用js控制DOM去改变样式，而@import不支持;
+## 3.HTML5离线存储
+定义：在用户没有与因特网连接时，可以正常访问站点或应用，在用户与因特网连接时，更新用户机器上的缓存文件。
+原理：HTML5的离线存储是基于一个新建的.appcache文件的缓存机制(不是存储技术)，通过这个文件上的解析清单离线存储资源，这些资源就会像cookie一样被存储了下来。之后当网络在处于离线状态下时，浏览器会通过被离线存储的数据进行页面展示。
+
+如何使用：
+1. 页面头部像下面一样加入一个manifest的属性；
+2. 在cache.manifest文件的编写离线存储的资源；
+  CACHE MANIFEST
+  #v0.11
+  CACHE:
+  js/app.js
+  css/style.css
+  NETWORK:
+  resourse/logo.png
+  FALLBACK:
+  // offline.html
+3. 在离线状态时，操作window.applicationCache进行需求实现。
