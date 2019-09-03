@@ -30,7 +30,7 @@ HTML5 不基于 SGML，因此不需要对DTD进行引用，但是需要doctype�
 标准分为：1.标准模式、JS运作模式、兼容模式等
 
 ## 2.link和@import
-### 页面导入样式时，使用link和@import有什么区别？
+- 页面导入样式时，使用link和@import有什么区别？
 1. link属于XHTML标签，除了加载CSS外，还能用于定义RSS, 定义rel连接属性等作用；而@import是CSS提供的，只能用于加载CSS;
 
 2. 页面被加载的时，link会同时被加载，而@import引用的CSS会等到页面被加载完再加载;
