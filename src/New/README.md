@@ -200,7 +200,7 @@ a {
     color: red;
 }
 ```
-
+<img src='https://github.com/guodongxiaren/ImageCache/raw/master/Logo/foryou.gif' style="width:10px">
 ```sql
 select head_time, first_time, dom_time, dom_ready_time,tcp_time, dns_time, event_hour, event_day,
 if({'1' = [conditions.load_time_type]},
