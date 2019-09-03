@@ -195,10 +195,14 @@ Object.defineProperty(Foo.prototype, "constructor", {
 
 所以可以看出.constructor是一个非常不可靠，并且不安全的引用。在开发中尽量避免使用这些引用。如果用了，请记得检查你的原型，避免出现.constructor丢失。
 
+```css
+a {
+    color: red;
+}
+```
 
 ```sql
-select head_time, first_time, dom_time, dom_ready_time,
-tcp_time, dns_time, event_hour, event_day,
+select head_time, first_time, dom_time, dom_ready_time,tcp_time, dns_time, event_hour, event_day,
 if({'1' = [conditions.load_time_type]},
    DATE_FORMAT(CONCAT(event_day, event_hour, '00', '00'), '%m-%d %H:%i'),
    DATE_FORMAT(event_day, '%m-%d')
