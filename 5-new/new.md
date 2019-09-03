@@ -4,8 +4,8 @@
 ```
 //创建Person构造函数，参数为name,age
 function Person(name,age){
-	this.name = name;
-	this.age = age;
+    this.name = name;
+    this.age = age;
 }
 //实例化对象小明
 xm = new Person('xiaoming',18);
@@ -20,8 +20,6 @@ console.log(xm);
 2. 执行构造函数，并将this指向刚刚创建的新对象；
 
 3. 返回新对象；
-
-
 
 ```
 function Person(name,age){
