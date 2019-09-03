@@ -194,3 +194,18 @@ Object.defineProperty(Foo.prototype, "constructor", {
 想要说明的就是一点对于.constructor，我们并不能完全信任，稍不留神，一个手误或者不懂原理就去改对象。会发生惨烈的指向错误，所以认为constructor的意思是“由…构造”，这个误解代价太高了。
 
 所以可以看出.constructor是一个非常不可靠，并且不安全的引用。在开发中尽量避免使用这些引用。如果用了，请记得检查你的原型，避免出现.constructor丢失。
+
+
+```sql
+select head_time, first_time, dom_time, dom_ready_time,
+tcp_time, dns_time, event_hour, event_day,
+if({'1' = [conditions.load_time_type]},
+   DATE_FORMAT(CONCAT(event_day, event_hour, '00', '00'), '%m-%d %H:%i'),
+   DATE_FORMAT(event_day, '%m-%d')
+) as date_time
+from perf_info
+where {event_day [conditions.event_day(number)]}
+and {product = [conditions.productId]}
+and {page = [conditions.page]}
+and if ({'1' = [conditions.load_time_type]}, event_hour != 'all', event_hour = 'all')
+```
