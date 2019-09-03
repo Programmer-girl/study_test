@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #iii,
+        #jjj {
+            height: 100px;
+            width: 200px;
+            background: lightblue;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    连续点击两个按钮，看看区别
+    <div id="iii">防抖1</div>
+    <div id="jjj">防抖2</div>
+</body>
+<script>
+    // 防抖
+    function debounce(fn, wait) {
+        var timeout = null;
+        return function () {
+            if (timeout !== null) clearTimeout(timeout);
+            timeout = setTimeout(fn, wait);
+        }
+    }
+
+    // 处理函数
+    function handle() {
+        console.log(Math.random());
+    }
+    var iii = document.getElementById('iii');
+    var jjj = document.getElementById('jjj');
+    iii.onclick = function () {
+        debounce(handle, 1000)();
+    };
+    jjj.onclick = debounce.call(this, handle, 1000);
+
+</script>
+
+</html>

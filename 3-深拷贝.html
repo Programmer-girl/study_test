@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <pre>
+在 JavaScript 中，数据类型包括：
+
+1、基本数据（值）类型，如 undefined、null、number、boolean、string等
+
+2、引用类型：如Object、Array、Function等。
+
+值类型赋值时，会在栈内存空间中分配全新的地址，并得到相应的值。代码中 b 是从 a 创建来的，当 b 变化时，a 不会受到影响。这是符合常识的。
+
+再来看看引用类型（以Object对象为例），对象实际是存在于堆内存空间中。当我们要访问一个对象的时候，实际上是从栈内存中获取引用地址，然后根据这个引用地址再从堆内存中获取所需要的值。
+
+而引用类型赋值时，实际上是获取其引用地址，而不是直接获取值。所以，值发生改变时，源对象也会随着改变。
+
+
+深拷贝：
+
+1. 使用 Object.assign({}, ...) 来解决 "单层"对象 引用问题
+
+2. 使用对象的扩展运算符
+
+</pre>
+
+</body>
+<script>
+    // var data = {
+    //     id: 0,
+    //     book: 'learn redux',
+    //     avaliable: false
+    // }
+    // var newData = data;
+    // newData.id = 1;
+    // console.log(data.id, newData.id) // 1 1
+
+    // 1.使用 Object.assign({}, ...) 来解决 "单层"对象 引用问题
+    // let data = {
+    //     id: 0,
+    //     book: 'learn redux',
+    //     avaliable: false
+    // }
+
+    // let newData = Object.assign({}, data)
+
+    // newData.id = 1;
+    // console.log(data.id, newData.id) // 0 1
+
+    // 2. 使用对象的扩展运算符
+
+    // var data = {
+    //     id: 0,
+    //     book: 'learn redux',
+    //     avaliable: false
+    // }
+    // var newData = {title: 'fuck', ...data};
+    // newData.id = 1;
+    // console.log(data.id, newData.id) // 0 1
+    // （PS：JavaScript的数组也是引用类型，同理可以使用 Array.concat 方法 和 数组的扩展运算符来解决引用问题，这里就省略了）
+
+
+    var data = [1,2,3];
+    var newData = data;
+    newData[2] = 1;
+    console.log(data,newData);
+</script>
+
+</html>

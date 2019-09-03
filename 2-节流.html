@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+            height: 100000px;
+        }
+    </style>
+</head>
+
+<body>
+    打开控制台，滚动屏幕
+</body>
+<script>
+    const throttle = (fn, delay = 500) => {
+        let flag = true;
+        return (...args) => {
+            if (!flag) return;
+            flag = false;
+            setTimeout(() => {
+                fn.apply(this, args);
+                flag = true;
+            }, delay);
+        };
+    };
+    // 处理函数
+    function handle() {
+        console.log(Math.random());
+    }
+    window.addEventListener('scroll', throttle(handle, 1000));
+</script>
+
+</html>

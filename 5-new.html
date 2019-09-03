@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+
+    //创建Person构造函数，参数为name,age
+    function Person(name, age) {
+        this.name = name;
+        this.age = age;
+    }
+    //实例化对象小明
+    // 1.原生new方法
+    // xm = new Person('xiaoming',18);
+    // 2.封装new函数
+    function _new() {
+        var Func = arguments[0];
+        var obj = Object.create(Func.prototype);
+        Func.apply(obj, arguments);
+        return obj
+    }
+    xm = _new(Person, 'xiaoming', 18)
+
+    //打印实例化出来的对象小明
+    console.log(xm);// Person {name: ƒ, age: "xiaoming"}
+
+</script>
+
+</html>
