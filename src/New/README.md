@@ -1,7 +1,7 @@
 # New
 
 ## new做了哪些事情
-```
+```js
 //创建Person构造函数，参数为name,age
 function Person(name,age){
     this.name = name;
@@ -21,7 +21,7 @@ console.log(xm);
 
 3. 返回新对象；
 
-```
+```js
 function Person(name,age){
     this.name = name;
     this.age = age;
@@ -46,14 +46,14 @@ console.log(xm);
 ## Object.create 和new区别
 创建对象的方式，我以我碰到的两种创建方式，Object.create 和new来说明
 
-```
+```js
 var Base = function () {}
 var o1 = new Base();
 var o2 = Object.create(Base);
 ```
 以下是Object.create的实现方式。可以看出来，Object.create是内部定义一个对象，并且让F.prototype对象 赋值为引进的对象/函数 o，并return出一个新的对象。
 
-```
+```js
 Object.create =  function (o) {
     var F = function () {};
     F.prototype = o;
@@ -61,7 +61,7 @@ Object.create =  function (o) {
 };
 ```
 `var o1 = new Base()`的时候new做了什么，new做法是新建一个obj对象o1，并且让o1的__proto__指向了Base.prototype对象。并且使用call 进行强转作用环境，从而实现了实例的创建。
-```
+```js
 var o1 = new Object();
 o1.[[Prototype]] = Base.prototype;
 Base.call(o1);
@@ -72,7 +72,7 @@ Base.call(o1);
 
 
 我们对原来的代码进行改进一下。
-```
+```js
 var Base = function () {
     this.a = 2
 }
@@ -87,7 +87,7 @@ console.log(o2.a);
 可以看到Object.create 失去了原来对象的属性的访问。 
 那再看看prototype呢？（一开始没理解prototype和__proto__ 的关系。造成对这两种方式的创建理解非常费解）。 
 再一次对代码进行改进。
-```
+```js
 var Base = function () {
     this.a = 2
 }
@@ -129,8 +129,7 @@ Object.create 则 function和object都可以进行构建。
 #### instanceof 和 isPrototypeOf
 写了创建一个对象实例，并且说了通过原型链来完成这一个个对象之间的联系，但是你怎么知道就一定含有呢？所以我们需要一个判断机制。
 
-这里写图片描述
-```
+```js
 function Foo(){
     //...
 }
@@ -141,14 +140,14 @@ a instanceof Foo; //true
 instanceof 说的是在a的整条[[Prototype]] 是否含有Foo.prototype对象。 但是这个方法只能实现对象(a)和函数(带.prototype引用的Foo),如果你想判断两个对象（a 和 b）是否通过[[Prototype]]链关联。只用instanceof就无法实现。
 
 所以这里用到了isPrototypeOf。
-```
+```js
 var a = {};
 var b = Object.ceate(a);
 ```
 b.isPrototypeOf(a);//在a的[[Prototype]]是否出现过b来判断。
 
 来看看isPrototypeOf实现方式。
-```
+```js
 function isRelatedTo(o1,o2){
     function F(){}
     F.prototype = o2;
@@ -161,7 +160,7 @@ console.log(a.isPrototypeOf(b) === isRelatedTo(b,a));// true
 constructor
 举例来说，.constructor是在函数声明时候的默认属性。 
 我们先来看看下面的代码。
-```
+```js
 function Foo(){
 }
 console.log(Foo.prototype.constructor === Foo);//true
@@ -170,7 +169,7 @@ console.log(a.constructor === Foo);//true
 ```
 看起来a.constructor === Foo 为真，意味着a的确有一个.constructor指向Foo的.constructor属性。 
 但是可能出于不理解，或者很多的误操作，都会导致我们.constructor指向的丢失。如下：
-```
+```js
 function Foo(){
 }
 Foo.prototype = {}
@@ -180,7 +179,7 @@ console.log(a1.constructor === Object);//true
 ```
 可以看到a1并没有.constructor属性。那是为什么呢。？因为a1没有.constructor属性，他会委托[[prototype]]链上的Foo.prototype。但是新建的Foo.prototype也没有.constructor,所以继续往上找，一直到了顶端的Object.prototype。 
 再来，为了绝对的保证我的代码可靠，不被一些错误操作，影响我们的执行。
-```
+```js
 function Foo(){
 }
 Foo.prototype = {}

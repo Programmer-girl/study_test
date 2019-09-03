@@ -7,7 +7,7 @@
 
 类是函数数据类型，如Object，Array
 
-```
+```js
 function Fn(){
     this.x = 100;
 }
@@ -25,7 +25,7 @@ console.log(Fn.prototype.constructor === Fn);// true
 
 ![运行结果](../img/5.png)
 
-```
+```js
 f1 instanceof Object // true
 ```
 因为f1通过__proto__可以向上级查找，不管有多少级，总能找到Object
@@ -33,7 +33,7 @@ f1 instanceof Object // true
 在Object.prototyoe上没有__proto__这个属性 Object是所有数据类型的基类，最顶层的类
 
 原型链模式
-```
+```js
 f1.hasOwnProperty('x') //true
 // 说明hasOwnPrototype是f1的一个属性
 // 但f1没有hasOwnPrototype这个方法
@@ -47,7 +47,7 @@ f1.hasOwnProperty('x') //true
 4. 如果原型上也没有，则继续通过原型上的__proto__继续向上查找，一直找到Object.prototype为止...没有则为undefined,这就是原型链。
 
 下面说几道题，还是上面那段代码
-```
+```js
 f1.getX === f1.getX; //true
 
 f1.__proto__.getX === f2.getX; //true

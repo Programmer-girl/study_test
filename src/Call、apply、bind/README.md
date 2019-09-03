@@ -48,7 +48,7 @@ fn1.call.call.call...call(fn2);//执行的都是fn2
 `fn1.call.call(fn2);`
 
 首先fn1通过原型链找到Function.prototype上的call方法，然后再让call方法通过原型在找到Function原型上的call（因为call本身的值也是一个函数，所以同样可以找到Function.prototype），在第二次找到call的时候让方法执行，方法中的this是fn1.call，首先让这个方法中的this变为fn2，然后执行fn1.call ->2
-```
+```js
 var obj = {name:rabbit};
 function fn(num1,num2){
     console.log(num1+num2);
