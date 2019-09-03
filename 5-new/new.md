@@ -10,6 +10,7 @@ xm = new Person('xiaoming',18);
 //打印实例化出来的对象小明
 console.log(xm);
 ```
+
     用new关键字实例化对象时，首先创建了一个空对象xm，并且这个空对象包含两个属性name和age，分别对应构造函数中的两个属性，实例化出来的这个对象xm是继承自Person.prototype,那么现在我们就可以总结出new关键字在实例化对象时内部都干了什么
 
     1. 创建一个空对象，并使该空对象继承Func.prototype；
@@ -17,6 +18,7 @@ console.log(xm);
     2. 执行构造函数，并将this指向刚刚创建的新对象；
 
     3. 返回新对象；
+
 ```
 
 function Person(name,age){
