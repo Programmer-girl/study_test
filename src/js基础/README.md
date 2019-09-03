@@ -43,7 +43,7 @@ HTML5 不基于 SGML，因此不需要对DTD进行引用，但是需要doctype�
 
 如何使用：
 1. 页面头部像下面一样加入一个manifest的属性；
-2. 在cache.manifest文件的编写离线存储的资源；
+2. 在`cache.manifest`文件的编写离线存储的资源；
 ```js
   CACHE MANIFEST
   #v0.11
@@ -55,4 +55,4 @@ HTML5 不基于 SGML，因此不需要对DTD进行引用，但是需要doctype�
   FALLBACK:
   // offline.html
 ```
-3. 在离线状态时，操作window.applicationCache进行需求实现。
+3. 在离线状态时，操作`window.applicationCache`进行需求实现。
