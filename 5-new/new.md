@@ -69,6 +69,7 @@ o1.[[Prototype]] = Base.prototype;
 Base.call(o1);
 ```
 来看看两个对象打印情况，看似是一样的。
+
 ![运行结果](../img/1.png)
 
 
@@ -82,6 +83,7 @@ var o2 = Object.create(Base);
 console.log(o1.a);
 console.log(o2.a);
 ```
+
 ![运行结果](../img/2.png)
 
 可以看到Object.create 失去了原来对象的属性的访问。 
@@ -99,6 +101,7 @@ console.log(o2.a);
 ```
 我一开始以为输出的值是2,3。。。以为prototype还是存在的。。结果发现真的发错特错。我们看运行的结果。
 ![运行结果](../img/2.png)
+
 依旧是如此。
 
 那我们就以图说话。
@@ -106,6 +109,7 @@ console.log(o2.a);
 ![运行结果](../img/3.png)
 
 ![运行结果](../img/4.png)
+
 （F在创建后被销毁）
 
 看完上图，我们就知道了，为什么通过Object.create构造的连Base原型上的属性都访问不到，因为他压根就没有指向他的prototype。这也就说明了__proto__ 和 prototype 的区别。所以上面在prototype定义的a，只是Base的prototype对象上的一个属性。
