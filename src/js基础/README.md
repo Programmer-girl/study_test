@@ -27,7 +27,7 @@ HTML5 不基于 SGML，因此不需要对DTD进行引用，但是需要doctype�
 而HTML4.01基于SGML,所以需要对DTD进行引用，才能告知浏览器文档所使用的文档类型。
 ### Doctype作用？
 告知浏览器的解析器用什么文档标准解析这个文档。
-标准分为：1.标准模式、JS运作模式、兼容模式等
+标准分为：标准模式、JS运作模式、兼容模式等
 
 ## 2.link和@import
 ### 页面导入样式时，使用link和@import有什么区别？
@@ -43,6 +43,7 @@ HTML5 不基于 SGML，因此不需要对DTD进行引用，但是需要doctype�
 如何使用：
 1. 页面头部像下面一样加入一个manifest的属性；
 2. 在cache.manifest文件的编写离线存储的资源；
+```js
   CACHE MANIFEST
   #v0.11
   CACHE:
@@ -52,4 +53,5 @@ HTML5 不基于 SGML，因此不需要对DTD进行引用，但是需要doctype�
   resourse/logo.png
   FALLBACK:
   // offline.html
+```
 3. 在离线状态时，操作window.applicationCache进行需求实现。
