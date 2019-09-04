@@ -63,3 +63,23 @@ console.log('zcar:', zcar);
 ```
 
 test，仍然表示为 export default 暴露的对象，而 { bar, zcar }则表示利用解析结构的语法，从整个返回对象中去取得对应的接口。输出结果也就很清晰了。
+
+在我们使用 react 时，常常这样使用
+
+```
+import React, { Component } from 'react'
+```
+
+其实也暗示了 React 的封装方式，也暗示了我们应该如何去封装我们的模块。
+
+这里我们能够直接引入 react 的原因，是因为我们将它安装到了文件夹 node_modules 中，该文件夹中安装的所有模块都可以这样直接引用。例如我们安装一个 jquery。
+
+```
+npm install jquery
+```
+
+然后在其他模块中就可以直接引入
+
+```
+import $ from 'jquery'
+```
