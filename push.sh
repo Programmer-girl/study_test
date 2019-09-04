@@ -1,4 +1,4 @@
 #!/bin/bash
 
 git add . && git commit -m "update" && git push
-console.log([-n "$1"])
+echo([-n "$1"])
