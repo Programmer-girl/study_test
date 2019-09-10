@@ -1,6 +1,6 @@
 # typeof和instanceof
 ## typeof
-要检测一个变量是不是基本数据类型，typeof操作符是最佳的工具。具体一点，typeof操作符是确定一个变量是字符串、数值、布尔值，还是undefined的最佳工具。如果变量的值是一个对象或null，则无法用typeof判断，如下：
+要检测一个变量是不是基本数据类型，`typeof`操作符是最佳的工具。具体一点，`typeof`操作符是确定一个变量是字符串、数值、布尔值，还是`undefined`的最佳工具。如果变量的值是一个对象或`null`，则无法用`typeof`判断，如下：
 ```js
 // 基本数据类型
 typeof 100              // number
