@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    var a = [{
+        value: 'undefined',
+        typeof: typeof undefined
+    }, {
+        value: 'true',
+        typeof: typeof true
+    }, {
+        value: 'false',
+        typeof: typeof false
+    }, {
+        value: '123',
+        typeof: typeof '123'
+    }, {
+        value: 123,
+        typeof: typeof 123
+    }, {
+        value: function () {console.log('123')},
+        typeof: typeof function () {console.log('123')},
+    }, {
+        value: () => {console.log('123')},
+        typeof: typeof (() => {console.log('123')}),
+    }, {
+        value: {a: 123},
+        typeof: typeof {a: 123}
+    },]
+    console.log(a)
+</script>
+
+</html>
