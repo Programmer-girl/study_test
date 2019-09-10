@@ -37,5 +37,5 @@ undefined instanceof Object   // false
 ```
 注意这里null不属于instanceof的实例
 ```js
-null instanceof Object    // false
+null      instanceof Object    // false
 ```
