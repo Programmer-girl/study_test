@@ -24,12 +24,12 @@ typeof [1, 2, 3];     // object
 
 如果变量是给定引用类型的实例（根据原型链来识别），那么`instanceof`会返回`true`。根据规定，所有的引用类型的值都是Object的实例。因此，在检测一个引用类型值和Object构造函数时，instanceof操作符会返回true。
 ```js
-[1, 2, 3] instanceof Object         // true
-(() => {}) instanceof Object        // true
+[1, 2, 3]      instanceof Object    // true
+(() => {})     instanceof Object    // true
 (function(){}) instanceof Object    // true
 ```
 当然，如果使用instanceof操作符检测基本类型的值，则该值返回false。
 ```js
-'123' instanceof Object             // false
-123 instanceof Object               // false
+'123'  instanceof Object            // false
+123    instanceof Object            // false
 ```
