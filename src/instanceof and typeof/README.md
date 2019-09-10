@@ -27,9 +27,15 @@ typeof [1, 2, 3];     // object
 [1, 2, 3]      instanceof Object    // true
 (() => {})     instanceof Object    // true
 (function(){}) instanceof Object    // true
+
 ```
 当然，如果使用instanceof操作符检测基本类型的值，则该值返回false。
 ```js
-'123'  instanceof Object            // false
-123    instanceof Object            // false
+'123'     instanceof Object   // false
+123       instanceof Object   // false
+undefined instanceof Object   // false
+```
+注意这里null不属于instanceof的实例
+```js
+null instanceof Object    // false
 ```
