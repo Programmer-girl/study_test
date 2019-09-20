@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    var a = {
+        val: "A",
+        left: {
+            val: "B",
+            left: {
+                val: "C"
+            },
+            right: {
+                val: "D",
+                left: {
+                    val: "E"
+                }
+            }
+        },
+        right: {
+            val: "B",
+            left: {
+                val: "D",
+                right: {
+                    val: "E"
+                }
+            },
+            right: {
+                val: "C"
+            }
+        }
+    };
+
+    function isSymmetric(root) {
+        return function (left, right) {
+            if (left == null && right == null) {
+                return true;
+            }
+            if (left == null || right == null) {
+                return false;
+            }
+            if (left.val != right.val) {
+                return false;
+            }
+            return arguments.callee(left.left, right.right) && arguments.callee(left.right, right.left);
+        }(root.left, root.right)
+    }
+    console.log(isSymmetric(a));
+</script>
+
+</html>
