@@ -30,4 +30,5 @@ var txt = str.replace(/hijklmn/,"abcdefg"); // 'abcdefg abcdefg opqrst'
 | \w	| 匹配字母、数字、下划线、汉字	|
 | \b	| 匹配单词边界	|
 | ^	| 匹配字符串的开始	|
-| $	| 匹配字符串的结束	| -->
+| $	| 匹配字符串的结束	| 
+--> 
