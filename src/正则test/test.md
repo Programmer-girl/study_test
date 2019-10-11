@@ -30,9 +30,10 @@ Mozilla/5.0 (iPOD; CPU iPhone OS 6_0_1 like Mac OS X) AppleWebKit/536.26 (KHTML,
 | ^	| 匹配字符串的开始	|
 | $	| 匹配字符串的结束	|
 仍然以上面提到的useragent为例
-````
+```
 Mozilla/5.0 (iPOD; CPU iPhone OS 6_0_1 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) Version/6.0 Mobile/10A523 Safari/8536.25
 ```
+
 `.`匹配除了换行符的任意字符，如果没做全局匹配，则匹配结果为整个ua信息的首字母`M`，单独使用没啥意义
 `\s`匹配了ua信息中的空格，如果没做全局匹配，则匹配结果为`Mozilla/5.0 `后面的空格
 `\d`匹配数字，上面有提过，如果没做全局匹配，匹配结果为`5`
@@ -62,7 +63,7 @@ Mozilla/5.0 (iPOD; CPU iPhone OS 6_0_1 like Mac OS X) AppleWebKit/536.26 (KHTML,
 | {n,m} | 重复n到m次|
 
 限定符的使用比较简单，仍然以上面提到的useragent为例
-````
+```
 Mozilla/5.0 (iPOD; CPU iPhone OS 6_0_1 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) Version/6.0 Mobile/10A523 Safari/8536.25
 ```
 比如我们要提取ua中最后的`Safari/8536.25`，我们假定`Safari/`后面的数字是版本号，且小数点不是必须的。
