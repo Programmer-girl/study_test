@@ -30,7 +30,10 @@ Mozilla/5.0 (iPOD; CPU iPhone OS 6_0_1 like Mac OS X) AppleWebKit/536.26 (KHTML,
 | ^	| 匹配字符串的开始	|
 | $	| 匹配字符串的结束	|
 仍然以上面提到的useragent为例
+<<<<<<< HEAD
 
+=======
+>>>>>>> b5aeb4b445fd6a279d335b52555ad3b8174cbe68
 ```
 Mozilla/5.0 (iPOD; CPU iPhone OS 6_0_1 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) Version/6.0 Mobile/10A523 Safari/8536.25
 ```
@@ -64,7 +67,7 @@ Mozilla/5.0 (iPOD; CPU iPhone OS 6_0_1 like Mac OS X) AppleWebKit/536.26 (KHTML,
 | {n,m} | 重复n到m次|
 
 限定符的使用比较简单，仍然以上面提到的useragent为例
-````
+```
 Mozilla/5.0 (iPOD; CPU iPhone OS 6_0_1 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) Version/6.0 Mobile/10A523 Safari/8536.25
 ```
 比如我们要提取ua中最后的`Safari/8536.25`，我们假定`Safari/`后面的数字是版本号，且小数点不是必须的。
@@ -177,6 +180,9 @@ Mozilla/5.0 (Linux; U; Android 7.1.1; zh-CN; OD105 Build/NMF26F) AppleWebKit/537
 以上基本上为web开发中大部分的应用场景，至于平衡组、递归匹配等高级内容，目前已知的只有`.Net`环境下支持，感兴趣的话可以自己搜索。
 
 至于常用的正则学习方法，有2个网站供大家参考
+
 https://regexr.com/   主要用来编写正则
+
 http://140.143.237.171/reg  用来可视化正则，方便找错
+
 玩的开心！
