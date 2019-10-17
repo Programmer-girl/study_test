@@ -48,7 +48,7 @@ function exposureTrack(options) {
 		var param = {
 			obj_floors: '',
 			tids: '',
-			obj_isads: '', //是否是广告
+			obj_isads: '',
 			thread_types: '',
 		};
 		if (onceTidList.length !== 0) {
