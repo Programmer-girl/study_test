@@ -23,7 +23,7 @@ console.log(Fn.prototype.constructor === Fn); // true
 
 以上代码说了一个函数数据类型 Fn，它有一个私有属性 x，有一个公有属性 getX（公有属性即在原型上的属性），然后构建了两个实例 f1 和 f2。
 
-我们判断 Fn.prototype.constructor 即为当前函数（类）本身。5
+我们判断 Fn.prototype.constructor 即为当前函数（类）本身。
 
 ![运行结果](../img/5.png)
 
