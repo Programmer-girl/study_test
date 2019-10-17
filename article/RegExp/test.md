@@ -30,10 +30,7 @@ Mozilla/5.0 (iPOD; CPU iPhone OS 6_0_1 like Mac OS X) AppleWebKit/536.26 (KHTML,
 | ^	| 匹配字符串的开始	|
 | $	| 匹配字符串的结束	|
 仍然以上面提到的useragent为例
-<<<<<<< HEAD
 
-=======
->>>>>>> b5aeb4b445fd6a279d335b52555ad3b8174cbe68
 ```
 Mozilla/5.0 (iPOD; CPU iPhone OS 6_0_1 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) Version/6.0 Mobile/10A523 Safari/8536.25
 ```
