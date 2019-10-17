@@ -212,3 +212,7 @@ Object.defineProperty(Foo.prototype, 'constructor', {
 想要说明的就是一点对于.constructor，我们并不能完全信任，稍不留神，一个手误或者不懂原理就去改对象。会发生惨烈的指向错误，所以认为 constructor 的意思是“由…构造”，这个误解代价太高了。
 
 所以可以看出.constructor 是一个非常不可靠，并且不安全的引用。在开发中尽量避免使用这些引用。如果用了，请记得检查你的原型，避免出现.constructor 丢失。
+
+# demo
+[demo1](https://github.com/Programmer-girl/study_test/blob/master/demo/New/1-1.html)
+[demo2](https://github.com/Programmer-girl/study_test/blob/master/demo/New/1-2.html)
