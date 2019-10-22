@@ -1,41 +1,48 @@
 # from (最近，大厂前端面试都问些什么问题)[https://mp.weixin.qq.com/s/zfI3JxsUK5rQ3-XGE9L2gw]
+
 ## 百度
 
 1、请分析以下代码执行结果
+
 ```js
 ['1', '3', '10'].map(parseInt);
 ```
+
 2、请分析以下代码执行结果
+
 ```js
 var number = 10;
 function fn() {
-  console.log(this.number);
+	console.log(this.number);
 }
 var obj = {
-  number: 2,
-  show: function(fn) {
-    this.number = 3;
-    fn();
-    arguments[0]();
-  }
+	number: 2,
+	show: function(fn) {
+		this.number = 3;
+		fn();
+		arguments[0]();
+	},
 };
 obj.show(fn);
 ```
+
 3、请写出 inner 的实际高度。
+
 ```html
 <style>
-  .outer {
-    width: 200px;
-    height: 100px;
-  }
-  .inner {
-    width: 60px;
-    height: 60px;
-    padding-top: 20%;
-  }
+	.outer {
+		width: 200px;
+		height: 100px;
+	}
+	.inner {
+		width: 60px;
+		height: 60px;
+		padding-top: 20%;
+	}
 </style>
 <div class="outer"><div class="inner"></div></div>
 ```
+
 4、手写一个深拷贝函数。
 
 5、HTTP 状态码 301 302 304 403。
@@ -49,6 +56,7 @@ obj.show(fn);
 8、react 高阶函数的写法，通常有哪几种。
 
     第一种是通过工厂模式直接 wrapper，第二种是通过组件反向继承的方式。
+
 ```
 // 反向继承方式写法如下
 class A extends B{
@@ -61,6 +69,7 @@ class A extends B{
   }
 }
 ```
+
 9、delete 数组的 item，数组的 length 是否会 -1。
 
     不会。
@@ -76,21 +85,23 @@ class A extends B{
 12、使用 node app.js 开启服务，如何让它在后台运行。
 
     开启守护进程，在命令后加上 & 符号，表示开启守护进程来执行。
+
 ```js
 node app.js &
 ```
+
 13、尽可能写出更多的数组副作用方法。
+
 ```
 splice、push、pop、shift、unshift。
 sort、fill、reverse。
 ```
+
 ### 百度三面：
 
 1、实现一个周岁函数，例如 fn('2018-8-8') 输出 1，只要是过了生日就 +1。
 
 2、不断优化刚才实现的函数，用尽一切办法，多问一问还有吗？跳出自己的固定思维圈。
-
-
 
 ### 阿里
 
@@ -108,41 +119,42 @@ sort、fill、reverse。
 
     React Hooks 原理
 
-
-
 ### 快手
 
 1、请写出以下代码执行结果。
+
 ```js
 var x = 1,
-  y = 0,
-  z = 0;
+	y = 0,
+	z = 0;
 function add(x) {
-  return (x = x + 1);
+	return (x = x + 1);
 }
 y = add(x);
 function add(x) {
-  return (x = x + 3);
+	return (x = x + 3);
 }
 z = add(x);
 // x:1 y:4 z:4
 ```
+
 2、请写出以下代码执行结果。
+
 ```js
 var num = 1;
 var myObject = {
-  num: 2,
-  add: function() {
-    this.num = 3;
-    (function() {
-      console.log(this.num);
-      this.num = 4;
-    })();
-    console.log(this.num);
-  },
-  sub: function() {
-    console.log(this.num);
-  }
+	num: 2,
+	add: function() {
+		this.num = 3;
+		(function() {
+			console.log(this.num);
+			this.num = 4;
+		})();
+		console.log(this.num);
+	},
+	sub: function() {
+		console.log(this.num);
+	},
 };
 myObject.add();
 console.log(myObject.num);
@@ -150,6 +162,7 @@ console.log(num);
 var sub = myObject.sub;
 sub();
 ```
+
 3、ts 如何获取一个函数的类型，以及获取一个函数参数的类型。
 
 4、ts 泛型约束的多种方法。
@@ -173,14 +186,14 @@ sub();
 9、bind 函数的第二个参数，可以传递函数的初始参数。
 
 10、使用 ts 时，如果不在 a 后面加类型，怎么创建一个 number[] 的数组？
+
 ```js
 const a = new Array<number>();
 ```
+
 11、react 源码看过吗，<Component1 /> 最后编译出来是个什么东西，是个什么类型？
 
     `ReactElement `类型。
-
-
 
 爱奇艺
 
@@ -199,16 +212,18 @@ const a = new Array<number>();
     是。
 
 5、自己实现一个 Symbol Interator 。
+
 ```js
 // 给一个对象设置Symbol Interator
 var obj = {
-  *[Symbol.iterator]() {
-    yield 1;
-    yield 2;
-    yield 3;
-  }
+	*[Symbol.iterator]() {
+		yield 1;
+		yield 2;
+		yield 3;
+	},
 };
 ```
+
 6、options 头是在什么时候会进行发送。
 
 检测服务器所支持的请求方法
@@ -223,27 +238,35 @@ CORS 中的预检请求
 
 9、写一个 0-100 的正则表达式。
 
+```js
 /^(d|[1-9]d|100)$/;
+```
+
 10、linux 中怎么查看内存和磁盘。
 
+```
 top 命令，查看内存。
 free 命令，查看内存。
 ps aux 列出当前内存中正在运行的程序。
 df 命令，查看磁盘。
+```
+
 11、meta 标签用过吗，都用来做些什么？
 
 seo 优化
 viewreport 设置手机端适配
 设置 charset 字符编码
 模拟 http 标头字段
+
+```html
 <meta name="keywords" content="电商,物流" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta charset="utf-8" />
 <!-- 模拟 html 缓存头部 -->
 <meta http-equiv="expires" content="Sunday 22 July 2016 16:30 GMT" />
+```
 
-
-滴滴
+### 滴滴
 
 1、快速排序和二分排序选一个手写。
 
@@ -282,7 +305,8 @@ https 协议的安全是有范围的，在黑客攻击、拒绝服务攻击、�
 ssl 证书的信用链体系并不安全。特别是在某些国家可以控制 ca 根证书的情况下，中间人攻击一样可行。
 需要购买费用。
 https 连接服务器端资源占用高较高多，相同负载下会增加带宽和服务器投入成本。
-三面问题：
+
+### 三面问题：
 
 1、你工作中做过的最牛的项目是什么？
 
@@ -300,35 +324,37 @@ https 连接服务器端资源占用高较高多，相同负载下会增加带�
 
      一般一个项目不够，尽量多准备几个。
 
-
-
-字节跳动
+### 字节跳动
 
 1、请分析以下代码执行结果
 
+```js
 async function a() {
-  var result = Promise.resolve();
-  result.abort = function() {
-    console.log('xxx');
-  };
-  return result;
+	var result = Promise.resolve();
+	result.abort = function() {
+		console.log('xxx');
+	};
+	return result;
 }
 var p = a();
 p.abort();
+```
+
 2、手写一个节流函数
 
-     手写节流函数
+    手写节流函数
 
 3、什么是装箱和拆箱
 
-     装箱和拆箱操作，能够在值类型和引用类型中架起一做桥梁。换言之,可以轻松的实现值类型与引用类型的互相转换。
+    装箱和拆箱操作，能够在值类型和引用类型中架起一做桥梁。换言之,可以轻松的实现值类型与引用类型的互相转换。
 
-     装箱是将值类型转换为引用类型，拆箱是将引用类型转换为值类型。
+    装箱是将值类型转换为引用类型，拆箱是将引用类型转换为值类型。
 
 4、什么是委托
 
-     粗略来说，一个类想执行一个方法，但它本身没有这个方法，这个方法在另一个类中，于是它“委托”那个类来帮它执行。
+    粗略来说，一个类想执行一个方法，但它本身没有这个方法，这个方法在另一个类中，于是它“委托”那个类来帮它执行。
 
+```js
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -359,23 +385,30 @@ namespace Delegate
         }
     }
 }
-5、手写一个 reduce 方法。
+```
 
+5、手写一个 `reduce` 方法。
+
+```js
 Array.prototype.reduce = function(reducer, initVal) {
-  for (let i = 0; i < this.length; i++) {
-    initVal = reducer(initVal, this[i], i, this);
-  }
-  return initVal;
+	for (let i = 0; i < this.length; i++) {
+		initVal = reducer(initVal, this[i], i, this);
+	}
+	return initVal;
 };
+```
+
 6、手写一个模板字符串替换方法
 
+```js
 function template(html, obj) {
-  return html.replace(/{{(.*?)}}/g, function(match, key) {
-    return obj[key.trim()];
-  });
+	return html.replace(/{{(.*?)}}/g, function(match, key) {
+		return obj[key.trim()];
+	});
 }
-
 template('{{name}}很厉name害，才{{ age }}岁', { name: 'jawil', age: '15' });
+```
+
 7、看过 antd 源码吗，如何实现一个 Model，Message 组件？
 
      只能猜想到 React Portals，未层看过源码，有待提升。
@@ -384,9 +417,7 @@ template('{{name}}很厉name害，才{{ age }}岁', { name: 'jawil', age: '15' }
 
      需要有落地实战项目，不然很难答好，消息加锁等。
 
-
-
-好未来
+### 好未来
 
 1、同步，异步，阻塞，非阻塞，分别解释一下。
 
@@ -400,74 +431,79 @@ template('{{name}}很厉name害，才{{ age }}岁', { name: 'jawil', age: '15' }
 
      通过动态 dns 解析。
 
-3、promise 实现一个 sleep。
+3、`promise` 实现一个 `sleep`。
 
+```js
 async function test() {
-  console.log('Hello');
-  await sleep(1000);
-  console.log('world!');
+	console.log('Hello');
+	await sleep(1000);
+	console.log('world!');
 }
 
 function sleep(ms) {
-  return new Promise(resolve => setTimeout(resolve, ms));
+	return new Promise(resolve => setTimeout(resolve, ms));
 }
 
 test();
+```
 
-
-贝壳
+### 贝壳
 
 1、实现一个 css 布局，每一列的第一个和最后一个元素，在最左最右侧，其他的元素均匀分布。
-     案例：第一行 4 个元素，第二列 2 个元素。
+案例：第一行 4 个元素，第二列 2 个元素。
 
 2、请分析以下代码执行结果
 
+```js
 function test(a) {
-  console.log(a);
-  function a() {}
+	console.log(a);
+	function a() {}
 }
 test(2);
+```
+
 3、请分析以下代码执行结果
 
+```js
 console.log('start');
 const interval = setInterval(() => {
-  console.log('setInterval');
+	console.log('setInterval');
 });
 
 setTimeout(() => {
-  console.log('setTimeout 1');
-  Promise.resolve()
-    .then(() => {
-      console.log('promise 3');
-    })
-    .then(() => {
-      console.log('promise 4');
-    })
-    .then(() => {
-      setTimeout(() => {
-        console.log('setTimeout 2');
-        Promise.resolve()
-          .then(() => {
-            console.log('promise 5');
-          })
-          .then(() => {
-            console.log('promise 6');
-          })
-          .then(() => {
-            clearInterval(interval);
-          });
-      });
-    });
+	console.log('setTimeout 1');
+	Promise.resolve()
+		.then(() => {
+			console.log('promise 3');
+		})
+		.then(() => {
+			console.log('promise 4');
+		})
+		.then(() => {
+			setTimeout(() => {
+				console.log('setTimeout 2');
+				Promise.resolve()
+					.then(() => {
+						console.log('promise 5');
+					})
+					.then(() => {
+						console.log('promise 6');
+					})
+					.then(() => {
+						clearInterval(interval);
+					});
+			});
+		});
 }, 0);
 
 Promise.resolve()
-  .then(() => {
-    console.log('promise 1');
-  })
-  .then(() => {
-    console.log('promise 2');
-  });
-
+	.then(() => {
+		console.log('promise 1');
+	})
+	.then(() => {
+		console.log('promise 2');
+	});
+```
 
 总结
 
