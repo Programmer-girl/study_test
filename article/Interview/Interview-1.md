@@ -11,7 +11,7 @@
 
 分析：map() 方法返回一个新数组，数组中的元素为原始数组元素调用函数处理后的值，会将currentValue,index,arr分别作为参数传进去。
 
-语法如下`array.map(function(currentValue,index,arr), thisValue)`
+语法如下：`array.map(function(currentValue,index,arr), thisValue)`
 ```js
 ['1', '3', '10'].map(function(){console.log(arguments)});
 // Arguments(3) ["1", 0, Array(3), callee: ƒ, Symbol(Symbol.iterator): ƒ]
