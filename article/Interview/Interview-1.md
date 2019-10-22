@@ -40,9 +40,9 @@ obj.show(fn);
 ```
 执行结果：10；undefined
 
-fn()调用的是window的fn，`this`->window；window的number为10。
+`fn()`调用的是window的fn，this->window；window的number为10。
 
-`arguments[0]()`调用的是arguments的fn，`this`->arguments；arguments的number为undefined。
+`arguments[0]()`调用的是arguments的fn，this->arguments；arguments的number为undefined。
 
 3、请写出 inner 的实际高度。
 
