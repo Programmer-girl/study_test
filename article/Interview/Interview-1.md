@@ -8,6 +8,7 @@
 ['1', '3', '10'].map(parseInt);
 ```
 结果：`[1, NaN, 2]`
+
 分析：map() 方法返回一个新数组，数组中的元素为原始数组元素调用函数处理后的值，会将currentValue,index,arr分别作为参数传进去。语法如下
 `array.map(function(currentValue,index,arr), thisValue)`
 ```js
