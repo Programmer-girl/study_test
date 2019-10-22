@@ -7,7 +7,7 @@
 ```js
 ['1', '3', '10'].map(parseInt);
 ```
-结果：`[1, NaN, 2]`
+执行结果：`[1, NaN, 2]`
 
 分析：map() 方法返回一个新数组，数组中的元素为原始数组元素调用函数处理后的值，会将currentValue,index,arr分别作为参数传进去。
 
@@ -25,15 +25,15 @@
 ```js
 var number = 10;
 function fn() {
-	console.log(this.number);
+    console.log(this.number);
 }
 var obj = {
-	number: 2,
-	show: function(fn) {
-		this.number = 3;
-		fn();
-		arguments[0]();
-	},
+    number: 2,
+    show: function(fn) {
+        this.number = 3;
+        fn();
+        arguments[0]();
+    }
 };
 obj.show(fn);
 ```
@@ -42,15 +42,15 @@ obj.show(fn);
 
 ```html
 <style>
-	.outer {
-		width: 200px;
-		height: 100px;
-	}
-	.inner {
-		width: 60px;
-		height: 60px;
-		padding-top: 20%;
-	}
+    .outer {
+        width: 200px;
+        height: 100px;
+    }
+    .inner {
+        width: 60px;
+        height: 60px;
+        padding-top: 20%;
+    }
 </style>
 <div class="outer"><div class="inner"></div></div>
 ```
