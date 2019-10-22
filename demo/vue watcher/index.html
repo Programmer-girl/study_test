@@ -16,23 +16,47 @@
         let obj = {};
         let oInp = document.getElementById('inp');
         let oBox = document.getElementById('box');
-        Object.defineProperty(obj, 'name', {
-            configurable: true,
-            enumerable: true,
-            get: function () {
-                console.log(111)
-                return val;
-            },
-            set: function (newVal) {
-                console.log('===');
-                oInp.value = newVal;
-                oBox.innerHTML = newVal;
-            }
-        });
+
+        
+        function defineReactive(data, key, val) {
+            let dep = [] // 新增
+            console.log(data, key, val, dep);
+            Object.defineProperty(data, key, {
+                enumerable: true,
+                configurable: true,
+                get: function () {
+                    console.log('get');
+                    dep.push(window.target) // 新增
+                    return val
+                },
+                set: function (newVal) {
+                    console.log('set')
+                    if (val === newVal) {
+                        return
+                    }
+                    val = newVal
+                }
+            })
+        }
         oInp.addEventListener('input', function (e) {
-            obj.name = e.target.value;
+            defineReactive(obj, 'name', e.target.value);
         });
-        obj.name = '苏日俪格';
+
+
+
+        // Object.defineProperty(obj, 'name', {
+        //     configurable: true,
+        //     enumerable: true,
+        //     get: function () {
+        //         console.log(111)
+        //         return val;
+        //     },
+        //     set: function (newVal) {
+        //         console.log('===');
+        //         oInp.value = newVal;
+        //         oBox.innerHTML = newVal;
+        //     }
+        // });
     </script>
 </body>
 
