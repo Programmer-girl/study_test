@@ -19,6 +19,7 @@
 // Arguments(3) ["10", 2, Array(3), callee: ƒ, Symbol(Symbol.iterator): ƒ]
 ```
 所以最终上面函数输出的是 `parseInt('1',0)`;`parseInt('3',1)`;`parseInt('10',2)`;
+即：`[1, NaN, 2]`
 
 2、请分析以下代码执行结果
 
@@ -37,6 +38,9 @@ var obj = {
 };
 obj.show(fn);
 ```
+执行结果：10；undefined
+fn()调用的是window的fn，this->window；window的number为10。
+arguments[0]()调用的是arguments的fn，this->arguments；arguments的number为undefined。
 
 3、请写出 inner 的实际高度。
 
@@ -54,6 +58,9 @@ obj.show(fn);
 </style>
 <div class="outer"><div class="inner"></div></div>
 ```
+	答：100px
+	本题实际考察的是padding-top为百分数的时候，如何计算；
+	margin、padding当值为百分比值时：无论是宽度还是高度，都以父级对象的width作为参考基准（基于高度自适应的特性）。
 
 4、手写一个深拷贝函数。
 
