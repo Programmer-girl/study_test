@@ -36,7 +36,8 @@ var vm = new Vue({
 });
 ```
 
-结果：
+运行结果:
+
 ![运行结果](../img/vue-watcher/1.png)
 
 我们可以看到属性 a 有两个相对应的 get 和 set 方法，为什么会多出这两个方法呢？因为 vue 是通过`Object.defineProperty()`来实现数据劫持的。
