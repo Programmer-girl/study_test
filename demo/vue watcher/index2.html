@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="inp" />
+    <div id="box"></div>
+    <script>
+        let obj = {};
+        let oInp = document.getElementById('inp');
+        let oBox = document.getElementById('box');
+        Object.defineProperty(obj, 'name', {
+            enumerable: true,
+            configurable: true,
+            get: function (val) {
+                console.log(111,val)
+                return val;
+            },
+            set: function (newVal) {
+                console.log(222)
+                oInp.value = newVal;
+                oBox.innerHTML = newVal;
+            }
+        });
+        oInp.addEventListener('input', function (e) {
+            obj.name = e.target.value;
+            console.log(obj.name);
+        });
+        // obj.name = '苏日俪格';
+    </script>
+</body>
+
+</html>

@@ -13,7 +13,7 @@
     <div id="box"></div>
 
     <script>
-        let obj = {};
+        window.obj = {};
         let oInp = document.getElementById('inp');
         let oBox = document.getElementById('box');
 
@@ -30,14 +30,16 @@
                     return val
                 },
                 set: function (newVal) {
-                    console.log('set')
-                    if (val === newVal) {
-                        return
-                    }
+                    console.log('set',val,newVal)
+                    // if (val === newVal) {
+                    //     return
+                    // }
                     val = newVal
+                    oBox.innerHTML = newVal;
                 }
             })
         }
+        
         oInp.addEventListener('input', function (e) {
             defineReactive(obj, 'name', e.target.value);
         });

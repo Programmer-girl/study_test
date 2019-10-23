@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    var Book = {}
+    var name = '';
+    Object.defineProperty(Book, 'name', {
+        set: function (value) {
+            name = value;
+            console.log('你取了一个书名叫做' + value);
+        },
+        get: function () {
+            return '《' + name + '》'
+        }
+    })
+
+    Book.name = 'vue权威指南';  // 你取了一个书名叫做vue权威指南
+    console.log(Book.name);  // 《vue权威指南》
+    console.log(Book);
+    export default class Dep{
+        static tar
+    }
+</script>
+
+</html>

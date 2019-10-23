@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    var obj = {};
+    var name = '';
+    Object.defineProperty(obj, 'name', {
+        set: function (value) {
+            name = value;
+            console.log('触发set方法：' + value);
+        },
+        get: function () {
+            return '触发get方法：' + name;
+        }
+    })
+
+    obj.name = '123';  // 赋值触发set方法
+    console.log(obj.name);  // 获取值触发get方法
+
+</script>
+
+</html>
