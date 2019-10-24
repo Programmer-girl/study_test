@@ -107,6 +107,9 @@ console.log(Book.name); // 《vue权威指南》
 
 流程图如下：
 
+![运行结果](../img/vue-watcher/2.png)
+
+
 ### 1.实现一个 Observer
 
 `Observer` 是一个数据监听器，其实现核心方法就是前文所说的 `Object.defineProperty()`。如果要对所有属性都进行监听的话，那么可以通过递归方法遍历所有属性值，并对其进行 `Object.defineProperty()`处理。如下代码，实现了一个 `Observer`。
