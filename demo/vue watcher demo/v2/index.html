@@ -1,32 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>self-vue</title>
 </head>
-
+<style>
+    #app {
+        text-align: center;
+    }
+</style>
 <body>
-
+    <div id="app">
+        <h2>{{ title }}</h2>
+        <h1>{{ name }}</h1>
+    </div>
 </body>
-<script>
-    var obj = {};
-    var name = '';
-    Object.defineProperty(obj, 'name', {
-        set: function (value) {
-            name = value;
-            console.log('触发set方法：' + value);
-        },
-        get: function () {
-            return '触发get方法：' + name;
-        }
-    })
+<script src="js/observer.js"></script>
+<script src="js/watcher.js"></script>
+<script src="js/compile.js"></script>
+<script src="js/index.js"></script>
 
-    obj.name = '123';  // 赋值触发set方法
-    console.log(obj.name);  // 获取值触发get方法
+<script type="text/javascript">
+
+    var selfVue = new SelfVue({
+        el: '#app',
+        data: {
+            title: 'hello world',
+            name: ''
+        }
+    });
+
+    window.setTimeout(function () {
+        selfVue.title = '你好';
+    }, 2000);
+
+    window.setTimeout(function () {
+        selfVue.name = 'canfoo';
+    }, 2500);
 
 </script>
-
 </html>
