@@ -25,14 +25,14 @@ vue 数据双向绑定是通过数据劫持结合发布者-订阅者模式的方
 
 ```js
 var vm = new Vue({
-	data: {
-		obj: {
-			a: 1,
-		},
-	},
-	created: function() {
-		console.log(this.obj);
-	},
+    data: {
+        obj: {
+            a: 1,
+        },
+    },
+    created: function() {
+        console.log(this.obj);
+    },
 });
 ```
 
@@ -48,7 +48,7 @@ var vm = new Vue({
 
 ```js
 var Book = {
-	name: 'vue权威指南',
+    name: 'vue权威指南',
 };
 console.log(Book.name); // vue权威指南
 ```
@@ -59,13 +59,13 @@ console.log(Book.name); // vue权威指南
 var Book = {};
 var name = '';
 Object.defineProperty(Book, 'name', {
-	set: function(value) {
-		name = value;
-		console.log('你取了一个书名叫做' + value);
-	},
-	get: function() {
-		return '《' + name + '》';
-	},
+    set: function(value) {
+        name = value;
+        console.log('你取了一个书名叫做' + value);
+    },
+    get: function() {
+        return '《' + name + '》';
+    },
 });
 
 Book.name = 'vue权威指南'; // 你取了一个书名叫做vue权威指南
@@ -119,20 +119,20 @@ function defineReactive(data, key, val) {
         configurable: true,
         get: function() {
             return val;
-	},
-	set: function(newVal) {
-	    val = newVal;
-	    console.log('属性' + key + '已经被监听了，现在值为：“' + newVal.toString() + '”');
-	},
+    },
+    set: function(newVal) {
+        val = newVal;
+        console.log('属性' + key + '已经被监听了，现在值为：“' + newVal.toString() + '”');
+    },
     });
 }
 
 function observe(data) {
     if (!data || typeof data !== 'object') {
-	return;
+    return;
     }
     Object.keys(data).forEach(function(key) {
-	defineReactive(data, key, data[key]);
+    defineReactive(data, key, data[key]);
     });
 }
 
@@ -154,22 +154,22 @@ function defineReactive(data, key, val) {
     observe(val); // 递归遍历所有子属性
     var dep = new Dep();
     Object.defineProperty(data, key, {
-	enumerable: true,
-	configurable: true,
-	get: function() {
-	    if (是否需要添加订阅者) {
-		dep.addSub(watcher); // 在这里添加一个订阅者
-	    }
-	    return val;
-	},
-	set: function(newVal) {
-	    if (val === newVal) {
-		return;
-	    }
-	    val = newVal;
-	    console.log('属性' + key + '已经被监听了，现在值为：“' + newVal.toString() + '”');
-	    dep.notify(); // 如果数据变化，通知所有订阅者
-	},
+    enumerable: true,
+    configurable: true,
+    get: function() {
+        if (是否需要添加订阅者) {
+        dep.addSub(watcher); // 在这里添加一个订阅者
+        }
+        return val;
+    },
+    set: function(newVal) {
+        if (val === newVal) {
+        return;
+        }
+        val = newVal;
+        console.log('属性' + key + '已经被监听了，现在值为：“' + newVal.toString() + '”');
+        dep.notify(); // 如果数据变化，通知所有订阅者
+    },
     });
 }
 
@@ -182,8 +182,8 @@ Dep.prototype = {
     },
     notify: function() {
         this.subs.forEach(function(sub) {
-	    sub.update();
-	});
+        sub.update();
+    });
     },
 };
 ```
@@ -196,30 +196,30 @@ Dep.prototype = {
 
 ```js
 function Watcher(vm, exp, cb) {
-	this.cb = cb;
-	this.vm = vm;
-	this.exp = exp;
-	this.value = this.get(); // 将自己添加到订阅器的操作
+    this.cb = cb;
+    this.vm = vm;
+    this.exp = exp;
+    this.value = this.get(); // 将自己添加到订阅器的操作
 }
 
 Watcher.prototype = {
-	update: function() {
-		this.run();
-	},
-	run: function() {
-		var value = this.vm.data[this.exp];
-		var oldVal = this.value;
-		if (value !== oldVal) {
-			this.value = value;
-			this.cb.call(this.vm, value, oldVal);
-		}
-	},
-	get: function() {
-		Dep.target = this; // 缓存自己
-		var value = this.vm.data[this.exp]; // 强制执行监听器里的 get 函数
-		Dep.target = null; // 释放自己
-		return value;
-	},
+    update: function() {
+        this.run();
+    },
+    run: function() {
+        var value = this.vm.data[this.exp];
+        var oldVal = this.value;
+        if (value !== oldVal) {
+            this.value = value;
+            this.cb.call(this.vm, value, oldVal);
+        }
+    },
+    get: function() {
+        Dep.target = this; // 缓存自己
+        var value = this.vm.data[this.exp]; // 强制执行监听器里的 get 函数
+        Dep.target = null; // 释放自己
+        return value;
+    },
 };
 ```
 
@@ -255,7 +255,7 @@ Dep.target = null;
 
 ```html
 <body>
-	<h1 id="name">{{name}}</h1>
+    <h1 id="name">{{name}}</h1>
 </body>
 ```
 
@@ -263,13 +263,13 @@ Dep.target = null;
 
 ```js
 function SelfVue(data, el, exp) {
-	this.data = data;
-	observe(data);
-	el.innerHTML = this.data[exp]; // 初始化模板数据的值
-	new Watcher(this, exp, function(value) {
-		el.innerHTML = value;
-	});
-	return this;
+    this.data = data;
+    observe(data);
+    el.innerHTML = this.data[exp]; // 初始化模板数据的值
+    new Watcher(this, exp, function(value) {
+        el.innerHTML = value;
+    });
+    return this;
 }
 ```
 
@@ -277,25 +277,25 @@ function SelfVue(data, el, exp) {
 
 ```html
 <body>
-	<h1 id="name">{{name}}</h1>
+    <h1 id="name">{{name}}</h1>
 </body>
 <script src="js/observer.js"></script>
 <script src="js/watcher.js"></script>
 <script src="js/index.js"></script>
 <script type="text/javascript">
-	var ele = document.querySelector('#name');
-	var selfVue = new SelfVue(
-		{
-			name: 'hello world',
-		},
-		ele,
-		'name'
-	);
+    var ele = document.querySelector('#name');
+    var selfVue = new SelfVue(
+        {
+            name: 'hello world',
+        },
+        ele,
+        'name'
+    );
 
-	window.setTimeout(function() {
-		console.log('name值改变了');
-		selfVue.data.name = 'canfoo';
-	}, 2000);
+    window.setTimeout(function() {
+        console.log('name值改变了');
+        selfVue.data.name = 'canfoo';
+    }, 2000);
 </script>
 ```
 
@@ -303,35 +303,35 @@ function SelfVue(data, el, exp) {
 
 ```js
 function SelfVue(data, el, exp) {
-	var self = this;
-	this.data = data;
+    var self = this;
+    this.data = data;
 
-	Object.keys(data).forEach(function(key) {
-		self.proxyKeys(key); // 绑定代理属性
-	});
+    Object.keys(data).forEach(function(key) {
+        self.proxyKeys(key); // 绑定代理属性
+    });
 
-	observe(data);
-	el.innerHTML = this.data[exp]; // 初始化模板数据的值
-	new Watcher(this, exp, function(value) {
-		el.innerHTML = value;
-	});
-	return this;
+    observe(data);
+    el.innerHTML = this.data[exp]; // 初始化模板数据的值
+    new Watcher(this, exp, function(value) {
+        el.innerHTML = value;
+    });
+    return this;
 }
 
 SelfVue.prototype = {
-	proxyKeys: function(key) {
-		var self = this;
-		Object.defineProperty(this, key, {
-			enumerable: false,
-			configurable: true,
-			get: function proxyGetter() {
-				return self.data[key];
-			},
-			set: function proxySetter(newVal) {
-				self.data[key] = newVal;
-			},
-		});
-	},
+    proxyKeys: function(key) {
+        var self = this;
+        Object.defineProperty(this, key, {
+            enumerable: false,
+            configurable: true,
+            get: function proxyGetter() {
+                return self.data[key];
+            },
+            set: function proxySetter(newVal) {
+                self.data[key] = newVal;
+            },
+        });
+    },
 };
 ```
 
@@ -349,14 +349,14 @@ SelfVue.prototype = {
 
 ```js
 function nodeToFragment(el) {
-	var fragment = document.createDocumentFragment();
-	var child = el.firstChild;
-	while (child) {
-		// 将 Dom 元素移入 fragment 中
-		fragment.appendChild(child);
-		child = el.firstChild;
-	}
-	return fragment;
+    var fragment = document.createDocumentFragment();
+    var child = el.firstChild;
+    while (child) {
+        // 将 Dom 元素移入 fragment 中
+        fragment.appendChild(child);
+        child = el.firstChild;
+    }
+    return fragment;
 }
 ```
 
@@ -397,17 +397,17 @@ function updateText (node, value) {
 
 ```js
 function SelfVue(options) {
-	var self = this;
-	this.vm = this;
-	this.data = options;
+    var self = this;
+    this.vm = this;
+    this.data = options;
 
-	Object.keys(this.data).forEach(function(key) {
-		self.proxyKeys(key);
-	});
+    Object.keys(this.data).forEach(function(key) {
+        self.proxyKeys(key);
+    });
 
-	observe(this.data);
-	new Compile(options, this.vm);
-	return this;
+    observe(this.data);
+    new Compile(options, this.vm);
+    return this;
 }
 ```
 
@@ -415,31 +415,31 @@ function SelfVue(options) {
 
 ```html
 <body>
-	<div id="app">
-		<h2>{{title}}</h2>
-		<h1>{{name}}</h1>
-	</div>
+    <div id="app">
+        <h2>{{title}}</h2>
+        <h1>{{name}}</h1>
+    </div>
 </body>
 <script src="js/observer.js"></script>
 <script src="js/watcher.js"></script>
 <script src="js/compile.js"></script>
 <script src="js/index.js"></script>
 <script type="text/javascript">
-	var selfVue = new SelfVue({
-		el: '#app',
-		data: {
-			title: 'hello world',
-			name: '',
-		},
-	});
+    var selfVue = new SelfVue({
+        el: '#app',
+        data: {
+            title: 'hello world',
+            name: '',
+        },
+    });
 
-	window.setTimeout(function() {
-		selfVue.title = '你好';
-	}, 2000);
+    window.setTimeout(function() {
+        selfVue.title = '你好';
+    }, 2000);
 
-	window.setTimeout(function() {
-		selfVue.name = 'canfoo';
-	}, 2500);
+    window.setTimeout(function() {
+        selfVue.name = 'canfoo';
+    }, 2500);
 </script>
 ```
 
@@ -449,23 +449,23 @@ function SelfVue(options) {
 
 ```js
 function compile(node) {
-	var nodeAttrs = node.attributes;
-	var self = this;
-	Array.prototype.forEach.call(nodeAttrs, function(attr) {
-		var attrName = attr.name;
-		if (self.isDirective(attrName)) {
-			var exp = attr.value;
-			var dir = attrName.substring(2);
-			if (self.isEventDirective(dir)) {
-				// 事件指令
-				self.compileEvent(node, self.vm, exp, dir);
-			} else {
-				// v-model 指令
-				self.compileModel(node, self.vm, exp, dir);
-			}
-			node.removeAttribute(attrName);
-		}
-	});
+    var nodeAttrs = node.attributes;
+    var self = this;
+    Array.prototype.forEach.call(nodeAttrs, function(attr) {
+        var attrName = attr.name;
+        if (self.isDirective(attrName)) {
+            var exp = attr.value;
+            var dir = attrName.substring(2);
+            if (self.isEventDirective(dir)) {
+                // 事件指令
+                self.compileEvent(node, self.vm, exp, dir);
+            } else {
+                // v-model 指令
+                self.compileModel(node, self.vm, exp, dir);
+            }
+            node.removeAttribute(attrName);
+        }
+    });
 }
 ```
 
@@ -475,17 +475,17 @@ function compile(node) {
 
 ```js
 function SelfVue(options) {
-	var self = this;
-	this.data = options.data;
-	this.methods = options.methods;
+    var self = this;
+    this.data = options.data;
+    this.methods = options.methods;
 
-	Object.keys(this.data).forEach(function(key) {
-		self.proxyKeys(key);
-	});
+    Object.keys(this.data).forEach(function(key) {
+        self.proxyKeys(key);
+    });
 
-	observe(this.data);
-	new Compile(options.el, this);
-	options.mounted.call(this); // 所有事情处理好后执行mounted函数
+    observe(this.data);
+    new Compile(options.el, this);
+    options.mounted.call(this); // 所有事情处理好后执行mounted函数
 }
 ```
 
