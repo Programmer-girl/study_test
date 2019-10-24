@@ -85,6 +85,7 @@ console.log(Book.name); // 《vue权威指南》
 关键点在于 `data` 如何更新 `view`，因为 `view` 更新 `data` 其实可以通过事件监听即可，比如 `input` 标签监听 `'input'` 事件就可以实现了。所以我们着重来分析下，当数据改变，如何更新视图的。
 
 数据更新视图的重点是如何知道数据变了，只要知道数据变了，那么接下去的事都好处理。如何知道数据变了，其实上文我们已经给出答案了，就是通过 `Object.defineProperty()`对属性设置一个 `set` 函数，当数据改变了就会来触发这个函数，所以我们只要将一些需要更新的方法放在这里面就可以实现 `data` 更新 `view` 了。
+![运行结果](../img/vue-watcher/5.png)
 
 思路有了，接下去就是实现过程了。
 
@@ -107,7 +108,7 @@ console.log(Book.name); // 《vue权威指南》
 
 流程图如下：
 
-![运行结果](../img/vue-watcher/2.png)
+![运行结果](../img/vue-watcher/4.png)
 
 
 ### 1.实现一个 Observer
