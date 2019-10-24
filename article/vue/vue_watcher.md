@@ -494,7 +494,7 @@ function SelfVue(options) {
 
 这时候我们可以来真正测试了，在页面上设置如下东西：
 
-```js
+```html
 <body>
     <div id="app">
         <h2>{{title}}</h2>
