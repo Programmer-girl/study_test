@@ -123,20 +123,20 @@ function defineReactive(data, key, val) {
         configurable: true,
         get: function() {
             return val;
-    },
-    set: function(newVal) {
-        val = newVal;
-        console.log('属性' + key + '已经被监听了，现在值为：“' + newVal.toString() + '”');
-    },
+        },
+        set: function(newVal) {
+            val = newVal;
+            console.log('属性' + key + '已经被监听了，现在值为：“' + newVal.toString() + '”');
+        },
     });
 }
 
 function observe(data) {
     if (!data || typeof data !== 'object') {
-    return;
+        return;
     }
     Object.keys(data).forEach(function(key) {
-    defineReactive(data, key, data[key]);
+        defineReactive(data, key, data[key]);
     });
 }
 
@@ -158,22 +158,22 @@ function defineReactive(data, key, val) {
     observe(val); // 递归遍历所有子属性
     var dep = new Dep();
     Object.defineProperty(data, key, {
-    enumerable: true,
-    configurable: true,
-    get: function() {
-        if (是否需要添加订阅者) {
-        dep.addSub(watcher); // 在这里添加一个订阅者
-        }
-        return val;
-    },
-    set: function(newVal) {
-        if (val === newVal) {
-        return;
-        }
-        val = newVal;
-        console.log('属性' + key + '已经被监听了，现在值为：“' + newVal.toString() + '”');
-        dep.notify(); // 如果数据变化，通知所有订阅者
-    },
+        enumerable: true,
+        configurable: true,
+        get: function() {
+            if (是否需要添加订阅者) {
+                dep.addSub(watcher); // 在这里添加一个订阅者
+            }
+            return val;
+        },
+        set: function(newVal) {
+            if (val === newVal) {
+                return;
+            }
+            val = newVal;
+            console.log('属性' + key + '已经被监听了，现在值为：“' + newVal.toString() + '”');
+            dep.notify(); // 如果数据变化，通知所有订阅者
+        },
     });
 }
 
@@ -186,8 +186,8 @@ Dep.prototype = {
     },
     notify: function() {
         this.subs.forEach(function(sub) {
-        sub.update();
-    });
+            sub.update();
+        });
     },
 };
 ```
@@ -381,14 +381,13 @@ function compileElement (el) {
         if (node.childNodes && node.childNodes.length) {
             self.compileElement(node);  // 继续递归遍历子节点
         }
-        });
-
-    },
-    function compileText (node, exp) {
-        var self = this;
-        var initText = this.vm[exp];
-        updateText(node, initText); // 将初始化的数据初始化到视图中
-        new Watcher(this.vm, exp, function (value) { // 生成订阅器并绑定更新函数
+    });
+},
+function compileText (node, exp) {
+    var self = this;
+    var initText = this.vm[exp];
+    updateText(node, initText); // 将初始化的数据初始化到视图中
+    new Watcher(this.vm, exp, function (value) { // 生成订阅器并绑定更新函数
         self.updateText(node, value);
     });
 },
@@ -537,4 +536,4 @@ function SelfVue(options) {
 2. https://www.jianshu.com/p/423a214757ba
 3. https://www.jianshu.com/p/23180880d3aa
 4. https://www.jqhtml.com/9032.html
-   等
+   等等等
