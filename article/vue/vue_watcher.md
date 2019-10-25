@@ -538,5 +538,6 @@ function SelfVue(options) {
 2. https://www.jianshu.com/p/423a214757ba
 3. https://www.jianshu.com/p/23180880d3aa
 4. https://www.jqhtml.com/9032.html
+5. [生成动图](http://www.gif5.net/)
 5. [观察者模式](https://www.runoob.com/design-pattern/observer-pattern.html)
    等等等
