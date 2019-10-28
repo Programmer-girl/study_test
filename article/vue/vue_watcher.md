@@ -73,6 +73,7 @@ Object.defineProperty(Book, 'name', {
 
 Book.name = 'vue权威指南'; // 你取了一个书名叫做vue权威指南
 console.log(Book.name); // 《vue权威指南》
+console.log(Book);
 ```
 
 我们通过`Object.defineProperty()`设置了对象`Book`的`name`属性，对其`get`和`set`进行重写操作，顾名思义，`get`就是在读取`name`属性这个值触发的函数，`set`就是在设置`name`属性这个值触发的函数，所以当执行 `Book.name = 'vue权威指南'`这个语句时，控制台会打印出 "你取了一个书名叫做 vue 权威指南"，紧接着，当读取这个属性时，就会输出 "《vue 权威指南》"，因为我们在 `get` 函数里面对该值做了加工了。如果这个时候我们执行下下面的语句，控制台会输出什么？
