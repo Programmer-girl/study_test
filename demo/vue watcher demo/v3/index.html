@@ -14,16 +14,16 @@
 <body>
     <div id="app">
         <h2>{{title}}</h2>
+        <button v-on:click="clickMe">click me!</button>
+        <br>
         <input v-model="name">
         <h1>{{name}}</h1>
-        <button v-on:click="clickMe">click me!</button>
     </div>
     <script src="js/observer.js"></script>
     <script src="js/watcher.js"></script>
     <script src="js/compile.js"></script>
     <script src="js/index.js"></script>
     <script type="text/javascript">
-
         new SelfVue({
             el: '#app',
             data: {
@@ -41,7 +41,6 @@
                 }, 8000);
             }
         });
-
     </script>
 </body>
 
