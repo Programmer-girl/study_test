@@ -73,6 +73,7 @@ Object.defineProperty(Book, 'name', {
 
 Book.name = 'vue权威指南'; // 你取了一个书名叫做vue权威指南
 console.log(Book.name); // 《vue权威指南》
+console.log(Book);
 ```
 
 我们通过`Object.defineProperty()`设置了对象`Book`的`name`属性，对其`get`和`set`进行重写操作，顾名思义，`get`就是在读取`name`属性这个值触发的函数，`set`就是在设置`name`属性这个值触发的函数，所以当执行 `Book.name = 'vue权威指南'`这个语句时，控制台会打印出 "你取了一个书名叫做 vue 权威指南"，紧接着，当读取这个属性时，就会输出 "《vue 权威指南》"，因为我们在 `get` 函数里面对该值做了加工了。如果这个时候我们执行下下面的语句，控制台会输出什么？
@@ -398,7 +399,12 @@ function updateText (node, value) {
 }
 ```
 
-获取到最外层节点后，调用 compileElement 函数，对所有子节点进行判断，如果节点是文本节点且匹配{{}}这种形式指令的节点就开始进行编译处理，编译处理首先需要初始化视图数据，对应上面所说的步骤 1，接下去需要生成一个并绑定更新函数的订阅器，对应上面所说的步骤 2。这样就完成指令的解析、初始化、编译三个过程，一个解析器 Compile 也就可以正常的工作了。为了将解析器 Compile 与监听器 Observer 和订阅者 Watcher 关联起来，我们需要再修改一下类 SelfVue 函数：
+获取到最外层节点后，调用 compileElement 函数，对所有子节点进行判断，如果节点是文本节点且匹配{{}}这种形式指令的节点就开始进行编译处理，编译处理首先需要初始化视图数据，对应上面所说的步骤
+
+1. 接下去需要生成一个并绑定更新函数的订阅器，对应上面所说的步骤 
+2. 这样就完成指令的解析、初始化、编译三个过程，一个解析器 Compile 也就可以正常的工作了。
+
+为了将解析器 Compile 与监听器 Observer 和订阅者 Watcher 关联起来，我们需要再修改一下类 SelfVue 函数：
 
 ```js
 function SelfVue(options) {
