@@ -8,7 +8,10 @@ function SelfVue (options) {
     });
 
     observe(this.data);
+
+    // 执行编译器
     new Compile(options.el, this);
+
     options.mounted.call(this); // 所有事情处理好后执行mounted函数
 }
 

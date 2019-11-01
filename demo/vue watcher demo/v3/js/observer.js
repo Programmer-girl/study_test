@@ -18,7 +18,7 @@ Observer.prototype = {
             configurable: true,
             get: function getter () {
                 if (Dep.target) {
-                    dep.addSub(Dep.target);
+                    dep.addSub(Dep.target);//依赖收集
                 }
                 return val;
             },
