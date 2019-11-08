@@ -1,9 +1,9 @@
 ![行程](https://b1-q.mafengwo.net/s15/M00/97/7D/CoUBGV3EF7CAMfq6AClI2uDFVFg589.png?imageMogr2%2Finterlace%2F1)
 # GO TO THAILAND
-# PLAN
 ## 12.28
 ![行程](../img/go/xc-1.png)
 ![行程](../img/go/xc-2.png)
+`安可达`
 ## 12.29
 ## 12.30
 ![行程](../img/go/xc-3.png)
