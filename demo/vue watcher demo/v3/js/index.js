@@ -2,7 +2,7 @@ function SelfVue (options) {
     var self = this;
     this.data = options.data;
     this.methods = options.methods;
-
+    console.log(this.data)
     Object.keys(this.data).forEach(function(key) {
         self.proxyKeys(key);
     });
@@ -22,9 +22,11 @@ SelfVue.prototype = {
             enumerable: false,
             configurable: true,
             get: function getter () {
+                console.log('sssgetter');
                 return self.data[key];
             },
             set: function setter (newVal) {
+                console.log('ssssetter');
                 self.data[key] = newVal;
             }
         });
