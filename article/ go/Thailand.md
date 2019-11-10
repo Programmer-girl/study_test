@@ -33,19 +33,57 @@
 ## 1.5
 ![行程](../img/go/xc-5.png)
 ![行程](../img/go/xc-6.png)
-## 准备费用
+
+### 娱乐：
+|项目名称|预算|链接|日期|其他|
+|--|--|--|--|--|
+|浮潜|💰680|[普吉出发一日游](https://traveldetail.fliggy.com/item.htm?spm=181.11197625.4973973.2.25494a0aV9lqyU&id=18511515905)||防水照相机|
+|丛林穿越|💰350|[普吉出发一日游](https://traveldetail.fliggy.com/item.htm?spm=181.11197625.4973973.2.17494a0ad92nuE&id=602437858130)<br>[飞猪搜索入口](https://travelsearch.fliggy.com/index.htm?searchType=product&keyword=%E4%B8%9B%E6%9E%97%E7%A9%BF%E8%B6%8A&conditions=v_from_city_abroad%3A%E6%99%AE%E5%90%89&pagenum=1)|||
+|泰式按摩|💰160|`let's relax 水疗店`|||
+|西蒙人妖秀|💰95|芭东海滩[出发](http://www.mafengwo.cn/sales/2320223.html)|
+
+## 勿忘：
+- 换泰铢
+- 买墨镜
+- 充电转换头！！！
+- 普吉定接机服务
+<br>
+- [填写入境卡](http://www.mafengwo.cn/i/11312798.html)
+
+曼谷交通图
+![曼谷交通图](https://upload-images.jianshu.io/upload_images/8691648-d2a69747673d2ced.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+曼谷BTS
+![曼谷BTS](https://upload-images.jianshu.io/upload_images/8691648-3f1a4df04db9048d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+### 住
+![image.png](https://upload-images.jianshu.io/upload_images/8691648-60deb4321c6c21d1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+### 玩
+![image.png](https://upload-images.jianshu.io/upload_images/8691648-18ae6749e44aec45.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+### 综合
+![image.png](https://upload-images.jianshu.io/upload_images/8691648-5b5d7a4a3ce6fe16.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+# 费用
+
+
+## 准备
+
+
 |日期|名称|渠道|费用|
 |--|--|--|--|
 |12.28、1.5|香港电话卡|淘宝飞猪|4.5|
 |-|七日泰国电话卡+赠品|淘宝飞猪|29|
 
-## 住宿费用
+## 住宿
+
 |日期|名称|渠道|费用|
 |--|--|--|--|
 |1.3-1.4|咱家普吉岛机场大厦酒店|安可达|206.22|
 |12.28-12.29|花卉希雷度假村|安可达|113.78|
 
-## 娱乐费用
+## 娱乐
+
 |日期|名称|渠道|费用|
 |--|--|--|--|
 |12.31|西蒙人妖秀|淘宝飞猪|80|
