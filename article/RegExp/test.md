@@ -20,6 +20,7 @@ Mozilla/5.0 (iPOD; CPU iPhone OS 6_0_1 like Mac OS X) AppleWebKit/536.26 (KHTML,
 
 # 元字符
 除了`\d\`和`\b`，常用的元字符如下所示
+
 | 元字符 | 说明 |
 | -------- | ------ |
 | .		| 匹配除了换行符外任意字符 |
