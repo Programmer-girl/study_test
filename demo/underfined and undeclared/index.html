@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .form {
+            color: #999;
+            text-align: right;
+        }
+    </style>
+</head>
+
+<body>
+    <pre>
+        ** undefined:已经在作用域中声明，但还没赋值的变量，是undefined
+        ** undeclared:还没有声明过的变量是undeclared
+    </pre>
+    <div class="form">from to 你不知道的js（中）1.3节</div>
+    <script>
+        var a;
+        console.log(a);// undefined
+        // console.log(b);// b is not defined
+
+        console.log(typeof a);// undefined
+        console.log(typeof b);// undefined
+    </script>
+    <script>
+        // ** 如果这个值是undeclared，如何保证不会因报错引起页面停止运行  -- 利用typeof的安全防范机制
+        
+        // 会抛出错误 DEBUG is not defined
+        // if(DEBUG){
+        //     console.log('debugging is starting')
+        // }
+        // 不会抛出错误
+        console.log(typeof DEBUG)
+        if (typeof DEBUG !== 'undefined') {
+            console.log('debugging is starting')
+        }
+        console.log('go');// 页面是否在继续
+    </script>
+    <script>
+        atob = function(){
+            /**/
+        }
+    </script>
+</body>
+
+</html>
