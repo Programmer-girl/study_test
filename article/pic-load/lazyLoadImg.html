@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body,html,ul,li{
+            margin: 0;
+            padding: 0;
+        }
+        ul {
+            list-style: none;
+        }
+        .show-img-list li {
+            margin-bottom: 30px;
+            width: 580px;
+            height: 326px;
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+    <ul class="show-img-list">
+        <li>
+            <img src="https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=1378364689,2995785258&fm=26&gp=0.jpg" data-src="https://imgsa.baidu.com/forum/w%3D580%3B/sign=2a3ecbb7e9cd7b89e96c3a8b3f1f43a7/3812b31bb051f8197821c837d5b44aed2e73e74c.jpg">
+        </li>
+        <li>
+            <img src="https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=1378364689,2995785258&fm=26&gp=0.jpg" data-src="https://imgsa.baidu.com/forum/w%3D580%3B/sign=b73b5fc688d6277fe912323018031e30/21a4462309f79052a8188c4303f3d7ca7bcbd54c.jpg">
+        </li>
+        <li>
+            <img src="https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=1378364689,2995785258&fm=26&gp=0.jpg" data-src="https://imgsa.baidu.com/forum/w%3D580%3B/sign=921e952d033387449cc52f746134d8f9/5882b2b7d0a20cf4559735a279094b36acaf994c.jpg">
+        </li>
+        <li>
+            <img src="https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=1378364689,2995785258&fm=26&gp=0.jpg" data-src="https://imgsa.baidu.com/forum/w%3D580/sign=3f8d2eef03f431adbcd243317b36ac0f/84143c4e251f95ca5cf259cbc6177f3e67095262.jpg">
+        </li>
+        <li>
+            <img src="https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=1378364689,2995785258&fm=26&gp=0.jpg" data-src="https://imgsa.baidu.com/forum/w%3D580/sign=30956d5ebf7eca80120539efa1229712/7f9f8c0a19d8bc3e33b1cdb78d8ba61ea8d34534.jpg">
+        </li>
+    </ul>
+</body>
+<script>
+    // 优化点：加防抖函数，减少性能损耗
+    var list = document.getElementsByClassName('show-img-list')[0];
+    var img = list.children[0].children[0];
+    img.setAttribute('src', img.getAttribute('data-src'));
+    function lazyLoad(list){
+        var h = window.innerHeight;
+        var s = document.documentElement.scrollTop || document.body.scrollTop;
+        for (var i = 0;i < list.childElementCount; i++) {
+            var img = list.children[i].children[0];
+            var getTop = img.offsetTop;
+            if ((h+s) > (getTop+200)) {
+                img.setAttribute('src', img.getAttribute('data-src'));
+            }
+        }
+    }
+    lazyLoad(list);
+    window.onscroll = function (){
+        lazyLoad(list);
+    }
+</script>
+</html>

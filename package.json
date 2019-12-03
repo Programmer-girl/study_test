@@ -1,0 +1,25 @@
+{
+  "name": "study_test",
+  "version": "1.0.0",
+  "description": "## 简介 定期学习分享",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Programmer-girl/study_test.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Programmer-girl/study_test/issues"
+  },
+  "homepage": "https://github.com/Programmer-girl/study_test#readme",
+  "dependencies": {
+    "eslint": "^6.7.1"
+  },
+  "devDependencies": {
+    "babel-eslint": "^11.0.0-beta.1"
+  }
+}
